@@ -15,15 +15,15 @@ void main()
 
     while (i <= n)
     {
-        int num;
-        printf("num = ");
-        scanf("%d", &num);
-        while( num < 2 || num > 6 ) {
-            printf("invalid input num again\n");
-            printf("num = ");
+        int grade;
+        printf("grade = ");
+        scanf("%d", &grade);
+        while( grade < 2 || grade >  6 ) {
+            printf("invalid input grade again\n");
+            printf("grade = ");
             return;
         }
-        sum = sum + num;
+        sum = sum + grade;
         i = i + 1;
     }
 
