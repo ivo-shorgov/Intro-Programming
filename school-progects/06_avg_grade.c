@@ -1,10 +1,10 @@
 #include <stdio.h>
 void main()
 {
-    int n ;
+    int n;
     printf("n = ");
     scanf("%d", &n);
-    while ( n < 1 )
+    while (n < 1)
     {
         printf("invalid input n again\n");
         printf("n = ");
@@ -18,7 +18,8 @@ void main()
         int grade;
         printf("grade = ");
         scanf("%d", &grade);
-        while( grade < 2 || grade >  6 ) {
+        while (grade < 2 || grade > 6)
+        {
             printf("invalid input grade again\n");
             printf("grade = ");
             return;
@@ -27,7 +28,8 @@ void main()
         i = i + 1;
     }
 
-    int avg = sum / n;
+    float avg;
+    avg = (float)sum / n;
 
     printf("avg=%d\n", avg);
 }
