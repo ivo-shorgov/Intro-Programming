@@ -7,7 +7,7 @@ int main()
     {
         printf("Enter a number : ");
         scanf("%d", &input);
-adv-tasks/the_count_of_prime_number_from_the_entered_numbers.c        if (input % 2 == 0 && input != 0)
+        if (input % 2 == 0 && input != 0)
         {
             counter++;
         }
