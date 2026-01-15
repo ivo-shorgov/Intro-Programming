@@ -5,11 +5,11 @@ int main()
     printf("Enter an integer: ");
     scanf("%d", &n);
     original = n;
+    int OK = 1;
     while (n > 0) 
     {
         int digit = n % 10;
         int temp = n / 10;
-        int OK = 1;
         while (temp > 0 && OK) 
         {
             if (digit == temp % 10) 

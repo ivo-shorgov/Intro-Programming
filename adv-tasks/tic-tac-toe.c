@@ -6,7 +6,7 @@ int main()
     char b1 = ' ', b2 = ' ', b3 = ' ';
     char c1 = ' ', c2 = ' ', c3 = ' ';
 
-    for (int turn = 1; turn < 9; turn++)
+    for (int turn = 1; turn <= 9; turn++)
     {
         int cell_number;
         printf("Pick a cell number from 1 to 9 : ");
