@@ -17,6 +17,7 @@ int main()
                 OK = 0;
                 break;
             }
+            temp /=10;
         }
         n /= 10;
     }
