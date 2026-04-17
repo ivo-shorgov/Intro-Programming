@@ -21,9 +21,9 @@ int main()
     }
 
     int temp;
-    int ok = 1;
     for (int i = 0; i < elements - 1; i++)
     {
+        int ok = 1;
         for (int k = 0; k < elements - i; k++)
         {
             if (arr[k] > arr[k + 1])
@@ -33,17 +33,14 @@ int main()
                 arr[k + 1] = temp;
                 ok = 0;
             }
-            if (ok)
-                break;
         }
+        if (ok)
+            break;
     }
 
-    if (ok)
+    for (int i = 0; i < elements; i++)
     {
-        for(int i = 0;i < elements;i++)
-        {
-            printf("%d",arr[i]);
-        }
+        printf("%d", arr[i]);
     }
 
     return 0;

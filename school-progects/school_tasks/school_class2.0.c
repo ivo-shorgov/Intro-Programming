@@ -3,10 +3,7 @@
 #define max_p 20
 int main()
 {
-
-    int marks[max_u][max_p];
     int students, classes;
-    // въвеждане на брой ученици (n) и брой предмети (m)
 
     do
     {
@@ -19,7 +16,8 @@ int main()
         scanf("%d", &classes);
     } while (classes < 1 || classes > max_p);
 
-    // въвеждане на оценките
+    float marks[students][classes];
+
     int i, k;
     for (i = 0; i < students; i++)
     {
@@ -28,49 +26,60 @@ int main()
             do
             {
                 printf("mark %d for student %d=", k + 1, i + 1);
-                scanf("%d", &marks[i][k]);
+                scanf("%f", &marks[i][k]);
             } while (marks[i][k] < 2 || marks[i][k] > 6);
         }
     }
-    // изчисляване на средния успех на всеки ученик
-    float avr_u[max_u];
 
-    for (i = 0; i < students; i++)
+    float avr_student[students];
+    float avr_for_students;
+
+    for (int row = 0; row < students; row++)
     {
-        avr_u[i] = 0;
-        for (k = 0; k < classes; k++)
-            avr_u[i] = avr_u[i] + marks[i][k];
-        avr_u[i] = avr_u[i] / classes;
+        float sum_1 = 0;
+        for (int col = 0; col < classes; col++)
+        {
+            sum_1 += marks[row][col];
+        }
+        avr_student[row] = sum_1 / classes;
+        avr_for_students += sum_1;
+    }
+    avr_for_students /= (students * classes);
+
+    float avr_class[classes];
+    for (int col = 0; col < classes; col++)
+    {
+        float sum_2 = 0;
+        for (int row = 0; row < students; row++)
+        {
+            sum_2 += marks[row][col];
+        }
+        avr_class[col] = sum_2 / students;
     }
 
-    // изчисляване на средния успех на класа по всеки предмет
-    float avr_p[max_p];
-
-    for (k = 0; k < classes; k++)
+    for (int row = 0; row < students; row++)
     {
-        avr_p[k] = 0;
-        for (i = 0; i < students; i++)
-            avr_p[k] = avr_p[k] + marks[i][k];
-        avr_p[k] = avr_p[k] / students;
+        printf("|");
+        for (int col = 0; col < classes; col++)
+        {
+            printf(" %.2f |", marks[row][col]);
+        }
+        printf(" %.2f |\n", avr_student[row]);
+        printf("-");
+        for(int i = 0;i<students;i++)
+        printf("-------\n");
     }
 
-    // изчисляване на средния успех на класа
-    float avr = 0;
-
-    for (i = 0; i < students; i++)
-        for (k = 0; k < classes; k++)
-            avr = avr + marks[i][k];
-    avr = avr / (students * classes);
-
-    for (i = 0; i < students; i++)
+    for (int i = 0, ok = 1; i < classes; i++)
     {
-        for (k = 0; k < classes; k++)
-            printf("%-5d", marks[i][k]);
-        printf("%-5.2f\n", avr_u[i]);
+        if (ok)
+        {
+            printf("|");
+            ok = 0;
+        }
+        printf(" %.2f |", avr_class[i]);
     }
-    for (i = 0; i < classes; i++)
-        printf("%-5.2f", avr_p[i]);
-    printf("%-5.2f", avr);
+    printf(" %.2f |", avr_for_students);
 
     return 0;
 }
