@@ -10,6 +10,7 @@ void checkForPalindrom(char string[], char reversed[], int len);
 void UpercaseForLettersAndStarsForNumbers(char string[]);
 void Palindrom(char string[], int len);
 void revers(char string[], int last_index);
+void my_strcat(char *s1, char *s2);
 
 #define MAX_SIZE 20
 
@@ -42,6 +43,30 @@ int main()
     Palindrom(string, len);
 
     revers(string, len - 1);
+
+    //task 8
+
+    char string1[3] = "hi";
+    char z[4] = "zzz";
+    char string2[4] = "ivo";
+    
+    my_strcat(string2, string1);
+
+
+    //strcpy
+    char s1[] = "hello";
+    char s2[] = "Ivo";
+
+    char newArr[MAX_SIZE];
+    strcpy(newArr, s1);
+
+    strcpy(s2, s1);
+
+
+    //strcat
+    char ss1[MAX_SIZE] = "hello";
+    char ss2[MAX_SIZE] = " Ivo";
+    strcat(ss2, ss1);
 
     return 0;
 }
@@ -135,16 +160,18 @@ void UpercaseForLettersAndStarsForNumbers(char string[])
 {
     printf("\n[Task 7] -  Change lower case letters to upercase and replace the digits with a star?\n");
     printf("Input: %s\n", string);
-    for (int i = 0; string[i] != '\0'; i++)
+    char *p = string;
+    while (*p != '\0')
     {
-        if (string[i] >= 'a' && string[i] <= 'z')
+        if (*p >= 'a' && *p <= 'z')
         {
-            string[i] = string[i] - 'a' + 'A';
+            *p = *p - 'a' + 'A';
         }
-        if (string[i] >= '0' && string[i] <= '9')
+        if (*p >= '0' && *p <= '9')
         {
-            string[i] = '*';
+            *p = '*';
         }
+        p++;
     }
     printf("Result: %s\n", string);
 }
@@ -177,4 +204,23 @@ void revers(char string[], int last_index)
         printf("%c", string[last_index]);
         revers(string, last_index - 1);
     }
+}
+
+void my_strcat(char *s1, char *s2)
+{
+    printf("\n[Task 8] - Concatenating strings\n");
+    printf("Before: string1='%s', string2='%s'\n", s1, s2);
+    char *start1 = s1;
+    char *start2 = s2;
+    while (*s1)
+        s1++;
+    while (*s2)
+    {
+        *s1 = *s2;
+        s1++;
+        s2++;
+    }
+    *s1 = '\0';
+    printf("After: string1='%s'\n", start1);
+    printf("After: string1='%s'\n", start2);
 }

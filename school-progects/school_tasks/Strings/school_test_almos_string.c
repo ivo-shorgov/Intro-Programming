@@ -11,9 +11,9 @@ int main()
     int isValid = 1;
     int hasDigits = 0;
     int isFirstChar = 1;
-    
+
     printf("Enter a sequence of characters: ");
-    
+
     while ((ch = getchar()) != '\n')
     {
         if (isFirstChar)
@@ -56,7 +56,7 @@ int main()
             }
         }
     }
-    
+
     // Valid integer must have at least one digit
     if (isValid && hasDigits)
     {
@@ -67,5 +67,6 @@ int main()
     {
         printf("Cannot convert to integer.\n");
     }
-    
+
     return 0;
+}
