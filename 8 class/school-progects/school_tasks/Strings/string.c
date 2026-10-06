@@ -49,9 +49,8 @@ int main()
     char string1[3] = "hi";
     char z[4] = "zzz";
     char string2[4] = "ivo";
-    
-    my_strcat(string2, string1);
 
+    my_strcat(string2, string1);
 
     //strcpy
     char s1[] = "hello";
@@ -62,11 +61,12 @@ int main()
 
     strcpy(s2, s1);
 
-
     //strcat
-    char ss1[MAX_SIZE] = "hello";
-    char ss2[MAX_SIZE] = " Ivo";
-    strcat(ss2, ss1);
+    char ss1[20] = "hello";
+    char zzz[20] = "zzzz";
+    char ss2[20] = " Ivo";
+    my_strcat(ss2, ss1);
+    puts(zzz);
 
     return 0;
 }
@@ -221,6 +221,6 @@ void my_strcat(char *s1, char *s2)
         s2++;
     }
     *s1 = '\0';
-    printf("After: string1='%s'\n", start1);
-    printf("After: string1='%s'\n", start2);
+    printf("After: string1=%s\n", start1);
+    printf("After: string2=%s\n", start2);
 }
